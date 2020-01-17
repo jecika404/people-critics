@@ -1,14 +1,14 @@
-//get data
-db.collection('topic').get().then(snapshot => {
-    setupTopic(snapshot.docs);
-});
 
 // auth status changes
 auth.onAuthStateChanged(user => {
     if(user) {
-        console.log('log in');
+        db.collection('topic').get().then(snapshot => {
+            setupTopic(snapshot.docs);
+            setupUI(user);
+        });
     }else {
-        console.log('log out');
+        setupUI();
+        setupTopic([]);
     }
 });
 
