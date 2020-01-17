@@ -1,0 +1,38 @@
+.carousel-item {
+  height: 100vh;
+  min-height: 300px;
+  background: no-repeat center center scroll;
+  background-size: cover;
+  background-color: black;
+}
+
+img {
+  opacity: .3;
+}
+
+.navbar-brand {
+  font-size: 30px;
+}
+
+.navbar-brand .logo-1 {
+  color: #bdc3c7;
+}
+
+.navbar-brand .logo-2 {
+  color: #c0392b;
+}
+
+.navbar-nav {
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.navbar-nav .nav-item .btn-color {
+  background-color: #e74c3c;
+  color: #bdc3c7;
+}
+
+.navbar-nav .nav-item .nav-link {
+  color: #bdc3c7 !important;
+}
+/*# sourceMappingURL=main.css.map */
