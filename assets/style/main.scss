@@ -3,6 +3,7 @@
 $fontColor: #636e72;
 
 $primaryColor: #d35400;
+$primaryColorDark: #a04000;
 
 // BASE //
 *,
@@ -18,70 +19,99 @@ body {
     font-family: 'Lato', sans-serif;
     font-weight: 300;
     line-height: 1.5;
-    // overflow: hidden;
     background-color: #f1f2f6;
 
 }
 
-a:active {
-    border: none;
-}
+
 
 // Background Cover Image
 .bg-img {
     opacity: .3;
 }
 // Carousel
+
 .carousel-item {
-    height: 100vh;
-    min-height: 300px;
-    background: no-repeat center center scroll;
-    -webkit-background-size: cover;
-    background-size: cover;
     background-color: black;
-    
+}
+.banner {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    opacity: .3;
 }
 .carousel-caption {
-    bottom: 30px;
+    padding-bottom: 100px;
+    transition: all .9s;
+    h2 {
+        font-size: 50px;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+    span {
+        color: $primaryColor;
+    }
+    a {
+        text-transform: uppercase;
+        background-color: $primaryColor;
+        padding: 15px 35px;
+        display: inline-block;
+        margin-top: 15px;
+        color: #fff;
+    }
+    a:hover {
+        transition: all .3s;
+        text-decoration: none;
+        background-color: $primaryColorDark;
+    }
 }
-.carousel-caption h5 {
-    font-size: 45px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-top: 25px;
 
-}
-.carousel-caption p {
-    width: 75%;
-    margin: auto;
-    font-size: 18px;
-    line-height: 1.9;
+.carousel-indicators {
+    .active {
+        background-color: $primaryColor !important;
+        
+    }
 }
 
 // NAVBAR //
 
+
 // Logo
 .logo {
-    border-radius: 40%;
-    opacity: .2;
-    width: 60px;
+    border-radius: 100%;
+    opacity: .4;
+    width: 50px;
 }
 // Nav  
 .navbar-nav {
-    font-size: 20px;
+    font-size: 18px;
     text-transform: uppercase;
 }
 // Nav - Log Out User 
 .fixed-top {
     .nav-item {
+        margin-right: 10px !important;
         .btn-color {
             background-color: $primaryColor;
             color: #bdc3c7;
+            &:hover {
+                color: #bdc3c7 !important;
+                background-color: $primaryColorDark;
+            }
+
         }
 
     }
     .nav-link{
+
         color: #bdc3c7 !important;
+
+        &:hover {
+            transition: all .3s;
+            text-decoration: none;  
+            color: $primaryColor !important;
+        }
     }
 }
 // Nav - Log In User 
@@ -125,3 +155,7 @@ a:active {
     }
     
 }
+
+
+
+
