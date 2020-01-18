@@ -85,32 +85,20 @@ a:active {
   color: #636e72;
 }
 
-.main {
-  padding: 20px;
-}
-
-.main .main-heding {
+.main-heading {
   color: #d35400;
 }
 
-.main .main-card {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -ms-flex-line-pack: center !important;
-      align-content: center !important;
-}
-
-.main .main-card .card-title {
-  color: #e67e22;
+.main {
+  background-color: #f1f2f6;
 }
 
 .main .main-card .card-text {
   color: #636e72;
+}
+
+.main .main-card .card-title {
+  color: #d35400;
 }
 
 .sidebar h2 {

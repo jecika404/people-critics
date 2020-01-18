@@ -1,15 +1,33 @@
 
+
 // auth status changes
 auth.onAuthStateChanged(user => {
     if(user) {
-        db.collection('topic').get().then(snapshot => {
+        db.collection('topic').onSnapshot(snapshot => {
             setupTopic(snapshot.docs);
             setupUI(user);
-        });
+        })
     }else {
         setupUI();
         setupTopic([]);
     }
+});
+
+// create new topic
+const createForm = document.querySelector('#create-form');
+createForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    $('#modal-create').modal('toggle');
+    db.collection('topic').add({
+        title: createForm['title'].value,
+        content: createForm['content'].value,
+        date: createForm['date'].value
+    }).then(() => {
+        createForm.reset();
+        
+    }).catch(err => {
+        console.log(err.message);
+    });
 });
 
 // sign up
@@ -20,8 +38,13 @@ signupForm.addEventListener('submit', (e) => {
     const password = signupForm['signup-password'].value;
     $('#modal-signup').modal('toggle');
     auth.createUserWithEmailAndPassword(email, password).then(cred => {
-        signupForm.reset();
+        return db.collection('users').doc(cred.user.uid).set({
+            bio: signupForm['signup-bio'].value
+          });
+        
 
+    }).then(() => {
+        signupForm.reset();
     });
 });
 
