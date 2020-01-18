@@ -21,12 +21,19 @@ const setupTopic = (data) => {
         data.forEach(doc => {
             const topic = doc.data();
             const cardBody = `
-            <div class="card-body">
+
+            <div class="row no-gutters">
+            <div class="col-4">
+            <img src="assets/img/test.jpg" class="card-img" alt="...">
+            </div>
+            <div class="col-md-8">
+            <div class="card-body main-card">
                 <h5 class="card-title">${topic.title}</h5>
                 <p class="card-text">${topic.content}</p>
                 <p class="card-text"><small class="text-muted">${topic.date}</small></p>
             </div>
-            <img class="card-img-bottom" src="assets/img/test.jpg" alt="Card image cap">
+            </div>
+        </div>
             `;
             html += cardBody;
            
@@ -37,6 +44,8 @@ const setupTopic = (data) => {
         fixedNav.classList.add('nav-login');
     }else {
         topicCard.innerHTML = '';
+        fixedNav.classList.remove('nav-login');
         fixedNav.classList.add('fixed-top');
+        
     }
 }

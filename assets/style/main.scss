@@ -1,3 +1,10 @@
+// VARIABLES //
+// $fontColor: #ecf0f1;
+$fontColor: #636e72;
+
+$primaryColor: #d35400;
+
+// BASE //
 *,
 *::after,
 *::before {
@@ -11,50 +18,20 @@ body {
     font-family: 'Lato', sans-serif;
     font-weight: 300;
     line-height: 1.5;
-    overflow: hidden;
+    // overflow: hidden;
+    background-color: #f1f2f6;
 
 }
 
+a:active {
+    border: none;
+}
 
+// Background Cover Image
 .bg-img {
     opacity: .3;
 }
-.logo {
-    border-radius: 50%;
-    opacity: .2;
-    width: 80px;
-}
-
-.navbar-nav {
-    font-size: 20px;
-    text-transform: uppercase;
-}
-
-.fixed-top {
-    .nav-item {
-        .btn-color {
-            background-color: #e74c3c;
-            color: #bdc3c7;
-        }
-
-    }
-    .nav-link{
-        color: #bdc3c7 !important;
-    }
-}
-
-.nav-login {
-    .nav-item {
-        .btn-color {
-            background-color: #e74c3c;
-            color: #bdc3c7;
-        }
-
-    }
-    .nav-link{
-        color: #2d3436;
-    }
-}
+// Carousel
 .carousel-item {
     height: 100vh;
     min-height: 300px;
@@ -79,4 +56,78 @@ body {
     margin: auto;
     font-size: 18px;
     line-height: 1.9;
+}
+
+// NAVBAR //
+
+// Logo
+.logo {
+    border-radius: 40%;
+    opacity: .2;
+    width: 60px;
+}
+// Nav  
+.navbar-nav {
+    font-size: 20px;
+    text-transform: uppercase;
+}
+// Nav - Log Out User 
+.fixed-top {
+    .nav-item {
+        .btn-color {
+            background-color: $primaryColor;
+            color: #bdc3c7;
+        }
+
+    }
+    .nav-link{
+        color: #bdc3c7 !important;
+    }
+}
+// Nav - Log In User 
+.nav-login {
+    // background: rgb(30,39,46);
+    background-color: #fff;
+    // background: linear-gradient(61deg, rgba(30,39,46,1) 3%, rgba(71,78,87,1) 60%, rgba(224,226,230,1) 89%);
+    box-shadow: 2px 5px 18px -13px rgba(56,59,64,1);    
+
+    .nav-item {
+        .btn-color {
+            background-color: $primaryColor;
+            color: #fff;
+        }
+
+    }
+    .nav-link{
+        color: $fontColor;
+    }
+}
+// MAIN //
+.main {
+    padding: 20px;
+    .main-heding {
+        color: $primaryColor;
+    }
+
+    .main-card {
+        display: flex;
+        flex-direction: column;
+        align-content: center !important;
+
+        .card-title {
+            color: #e67e22;
+        }
+        .card-text {
+            color: $fontColor;
+
+        }
+    }
+    
+}
+// SIDEBAR //
+.sidebar {
+    h2 {
+        color: $primaryColor;
+    }
+    
 }
