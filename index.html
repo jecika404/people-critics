@@ -28,8 +28,11 @@
                 <li class="nav-item logged-in" style="display: none;">
                     <a class="nav-link btn btn-color" href="#" data-toggle="modal" data-target="#modal-account">Account</a>
                 </li>
-                <li class="nav-item logged-in" style="display: none;"  data-toggle="modal" data-target="#modal-create">
+                <li class="nav-item admin" style="display: none;"  data-toggle="modal" data-target="#modal-create">
                   <a class="nav-link" href="#"></i>Add Topic</a>
+                </li>
+                <li class="nav-item admin" style="display: none;"  data-toggle="modal" data-target="#modal-rola">
+                  <a class="nav-link" href="#"></i>Add Admin</a>
                 </li>
                 <li class="nav-item logged-in" style="display: none;">
                     <a class="nav-link" href="#" id="logout"></i>Log Out</a>
@@ -94,10 +97,10 @@
       <div class="container-fluid logged-in">
         <h2 class="display-5 text-center mb-4 mt-4 main-heading">New Topic</h2>
         <div class="row">
-          <div class="col-9 main mt-5">
+          <div class="col-8 main mt-5">
               <!-- Dynamic Output -->
           </div>
-          <div class="col-3 sidebar mt-5">
+          <div class="col-4 sidebar mt-5">
             <h2 class="display-5 text-center">Chat</h2>
           </div>
         </div>
@@ -105,6 +108,31 @@
       
 
     <!-- MODALS -->
+
+    <!-- Add Admin Modal-->
+    <div class="modal fade" id="modal-rola" tabindex="-1" role="dialog" aria-labelledby="addAdmin" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Add Admin</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+          <form class="admin-actions">
+              <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control" id="admin-email" placeholder="Email Admin">
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Make Admin</button>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
 
     <!-- Sign Up Modal-->
     <div class="modal fade" id="modal-signup" tabindex="-1" role="dialog" aria-labelledby="signUp" aria-hidden="true">
@@ -118,18 +146,18 @@
             </div>
             <div class="modal-body">
             <form id="signup-form">
-                    <div class="form-group">
-                      <label for="email">Email address</label>
-                      <input type="email" class="form-control" id="signup-email" placeholder="Email address">
-                    </div>
-                    <div class="form-group">
-                      <label for="password">Password</label>
-                      <input type="password" class="form-control" id="signup-password" placeholder="Choose password">
-                    </div>
-                    <div class="form-group">
-                      <label for="bio">Bio</label>
-                      <input type="text" class="form-control" id="signup-bio" placeholder="One line bio">
-                    </div>
+                <div class="form-group">
+                  <label for="email">Email address</label>
+                  <input type="email" class="form-control" id="signup-email" placeholder="Email address">
+                </div>
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input type="password" class="form-control" id="signup-password" placeholder="Choose password">
+                </div>
+                <div class="form-group">
+                  <label for="bio">Bio</label>
+                  <input type="text" class="form-control" id="signup-bio" placeholder="One line bio">
+                </div>
             </div>
             <div class="modal-footer">
               <button type="submit" class="btn btn-primary">Sgin Up</button>
@@ -151,14 +179,14 @@
             </div>
             <div class="modal-body">
             <form id="login-form">
-                    <div class="form-group">
-                      <label for="email">Email address</label>
-                      <input type="email" class="form-control" id="login-email" placeholder="Email address">
-                    </div>
-                    <div class="form-group">
-                      <label for="password">Password</label>
-                      <input type="password" class="form-control" id="login-password" placeholder="Enter Password">
-                    </div>
+                <div class="form-group">
+                  <label for="email">Email address</label>
+                  <input type="email" class="form-control" id="login-email" placeholder="Email address">
+                </div>
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input type="password" class="form-control" id="login-password" placeholder="Enter Password">
+                </div>
             </div>
             <div class="modal-footer">
               <button type="submit" class="btn btn-primary">Sgin Up</button>
@@ -180,18 +208,18 @@
           </div>
           <div class="modal-body">
           <form id="create-form">
-                  <div class="form-group">
-                    <label for="title">Topic Title</label>
-                    <input type="text" class="form-control" id="title" placeholder="Enter Topic Title">
-                  </div>
-                  <div class="form-group">
-                    <label for="content">Topic Content</label>
-                    <textarea type="text" id="content" class="form-control" cols="20" rows="5" placeholder="Enter Topic Content"></textarea>
-                  </div>
-                  <div class="form-group">
-                    <label for="date">Date</label>
-                    <input type="date" class="form-control" id="date" placeholder="Enter Date">
-                  </div>      
+              <div class="form-group">
+                <label for="title">Topic Title</label>
+                <input type="text" class="form-control" id="title" placeholder="Enter Topic Title">
+              </div>
+              <div class="form-group">
+                <label for="content">Topic Content</label>
+                <textarea type="text" id="content" class="form-control" cols="20" rows="5" placeholder="Enter Topic Content"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="date">Date</label>
+                <input type="date" class="form-control" id="date" placeholder="Enter Date">
+              </div>      
             </div>
             <div class="modal-footer">
               <button type="submit" class="btn btn-primary">Sgin Up</button>
@@ -202,7 +230,6 @@
     </div>
 
     <!-- Account Modal -->
-    <!-- Create Topic Modal-->
     <div class="modal fade" id="modal-account" tabindex="-1" role="dialog" aria-labelledby="accountForm" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -217,10 +244,12 @@
         </div>
       </div>
     </div>
+
     <!-- FIREBASE -->
     <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-functions.js"></script>
     <script>
     var firebaseConfig = {
         apiKey: "AIzaSyB9u6lHRoeAUXAuyrNaXW1rZmdOucm7fms",
@@ -233,7 +262,8 @@
 
     // References auth and db
     const auth = firebase.auth(); 
-    const db = firebase.firestore(); 
+    const db = firebase.firestore();
+    const functions = firebase.functions();  
     </script>
 
 

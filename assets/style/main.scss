@@ -1,9 +1,10 @@
 // VARIABLES //
-// $fontColor: #ecf0f1;
+
 $fontColor: #636e72;
 
 $primaryColor: #d35400;
 $primaryColorDark: #a04000;
+$bgColor: #eaecf4;
 
 // BASE //
 *,
@@ -19,7 +20,7 @@ body {
     font-family: 'Lato', sans-serif;
     font-weight: 300;
     line-height: 1.5;
-    background-color: #f1f2f6;
+    background-color: $bgColor;
 
 }
 
@@ -115,9 +116,8 @@ body {
     }
 }
 // Nav - Log In User 
-.nav-login {
-    background-color: #fff;
-    box-shadow: 2px 5px 18px -13px rgba(56,59,64,1);    
+.nav-login {    
+    // box-shadow: 2px 5px 18px -13px rgba(56,59,64,1);    
 
     .nav-item {
         .btn-color {
@@ -127,7 +127,7 @@ body {
 
     }
     .nav-link{
-        color: $fontColor;
+        color: $fontColor !important;
     }
 }
 // MAIN //
@@ -135,9 +135,16 @@ body {
     color: $primaryColor;
 }
 .main {
-
-    background-color: #f1f2f6;
+    background-color: $bgColor;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between !important;
+    .card {
+        border: none;
+    }
     .main-card {
+        
         .card-text {
             color: $fontColor;
 
@@ -146,8 +153,12 @@ body {
             color: $primaryColor;
         }
     }
-    
+    .card-body {
+        
+        padding: 5px 20px;
+    }
 }
+
 // SIDEBAR //
 .sidebar {
     h2 {

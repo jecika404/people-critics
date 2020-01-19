@@ -13,7 +13,7 @@ body {
   font-family: 'Lato', sans-serif;
   font-weight: 300;
   line-height: 1.5;
-  background-color: #f1f2f6;
+  background-color: #eaecf4;
 }
 
 .bg-img {
@@ -104,19 +104,13 @@ body {
   color: #d35400 !important;
 }
 
-.nav-login {
-  background-color: #fff;
-  -webkit-box-shadow: 2px 5px 18px -13px #383b40;
-          box-shadow: 2px 5px 18px -13px #383b40;
-}
-
 .nav-login .nav-item .btn-color {
   background-color: #d35400;
   color: #fff;
 }
 
 .nav-login .nav-link {
-  color: #636e72;
+  color: #636e72 !important;
 }
 
 .main-heading {
@@ -124,7 +118,21 @@ body {
 }
 
 .main {
-  background-color: #f1f2f6;
+  background-color: #eaecf4;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify !important;
+      -ms-flex-pack: justify !important;
+          justify-content: space-between !important;
+}
+
+.main .card {
+  border: none;
 }
 
 .main .main-card .card-text {
@@ -133,6 +141,10 @@ body {
 
 .main .main-card .card-title {
   color: #d35400;
+}
+
+.main .card-body {
+  padding: 5px 20px;
 }
 
 .sidebar h2 {
