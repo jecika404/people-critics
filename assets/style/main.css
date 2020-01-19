@@ -94,7 +94,7 @@ body {
 }
 
 .fixed-top .nav-link {
-  color: #bdc3c7 !important;
+  color: #bdc3c7;
 }
 
 .fixed-top .nav-link:hover {
@@ -104,13 +104,33 @@ body {
   color: #d35400 !important;
 }
 
-.nav-login .nav-item .btn-color {
-  background-color: #d35400;
-  color: #fff;
+.nav-icon {
+  width: 30px !important;
+  height: 30px !important;
+  fill: #d35400 !important;
 }
 
-.nav-login .nav-link {
-  color: #636e72 !important;
+.nav-icon:hover {
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  fill: #a04000 !important;
+}
+
+.nav-login {
+  background-color: #fff;
+}
+
+.nav-login .nav-item .btn-blog {
+  background-color: #d35400 !important;
+  color: #fff;
+  border: 0;
+}
+
+.nav-login .nav-item .btn-blog:hover {
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  background-color: #a04000 !important;
+  color: #fff;
 }
 
 .main-heading {

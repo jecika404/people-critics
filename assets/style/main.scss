@@ -105,30 +105,46 @@ body {
 
     }
     .nav-link{
-
-        color: #bdc3c7 !important;
-
+        color: #bdc3c7;
         &:hover {
             transition: all .3s;
             text-decoration: none;  
             color: $primaryColor !important;
         }
+        
+    }
+}
+
+.nav-icon {
+    width: 30px !important;
+    height: 30px !important;
+    fill: $primaryColor !important;
+
+    &:hover {
+        transition: all .3s;
+        fill: $primaryColorDark !important;
     }
 }
 // Nav - Log In User 
 .nav-login {    
-    // box-shadow: 2px 5px 18px -13px rgba(56,59,64,1);    
-
+    // box-shadow: 2px 5px 18px -13px rgba(56,59,64,1);
+    background-color: #fff;    
     .nav-item {
-        .btn-color {
-            background-color: $primaryColor;
+        .btn-blog {
+            background-color: $primaryColor !important;
             color: #fff;
+            border: 0;
+
+            &:hover {
+                transition: all .3s;
+                background-color: $primaryColorDark !important;
+                color: #fff;
+            }
+            
         }
 
     }
-    .nav-link{
-        color: $fontColor !important;
-    }
+
 }
 // MAIN //
 .main-heading {
