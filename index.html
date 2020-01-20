@@ -14,17 +14,12 @@
     <!-- NAVBAR-->
     <nav class="navbar navbar-expand-lg navbar-dark">
             <img src="assets/img/logo.jpg" class="logo logged-out" alt="logo image">
+            <div class="user-details logged-in"><!-- Dynamic Output --></div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
-                  <li class="nav-item">
-                      <a class="nav-link btn btn-blog" href="#">Blog</a>
-                  </li>
-                  <li class="nav-item logged-out">
-                    <a class="nav-link" href="#">About</a>
-                  </li>
                   <li class="nav-item logged-in">
                     <a class="nav-link" href="#">
                       <svg class="nav-icon">
@@ -64,7 +59,7 @@
                     <a class="nav-link" href="#" data-target="#modal-login" data-toggle="modal">Log In</a>
                 </li>
                 <li class="nav-item active logged-out" style="display: none;">
-                    <a class="nav-link btn btn-color" href="#" data-toggle="modal" data-target="#modal-signup">Sing Up</a>
+                    <a class="nav-link btn btn-signup" href="#" data-toggle="modal" data-target="#modal-signup">Sing Up</a>
                 </li>
                 </ul>
             </div>
@@ -83,7 +78,7 @@
             <div class="carousel-caption">
                 <h2>Give Your <span>Judgement</span></h2>
                 <h3>Film Industry Topics - Discuss all together. Chat with other.</h3>
-                <p><a href="">Join Us</a></p>
+                <p><a class="" href="#" data-toggle="modal" data-target="#modal-signup">Join us</a></p>
             </div>
             </div>
             <div class="carousel-item">
@@ -91,7 +86,7 @@
             <div class="carousel-caption">
               <h2>Give Your <span>Judgement</span></h2>
               <h3>Film Industry Topics - Discuss all together. Chat with other.</h3>
-              <p><a href="">Join Us</a></p>
+              <p><a class="" href="#" data-toggle="modal" data-target="#modal-signup">Join us</a></p>
             </div>
             </div>
             <div class="carousel-item">
@@ -99,7 +94,7 @@
             <div class="carousel-caption">
               <h2>Give Your <span>Judgement</span></h2>
               <h3>Film Industry Topics - Discuss all together. Chat with other.</h3>
-              <p><a href="">Join Us</a></p>
+              <p><a class="" href="#" data-toggle="modal" data-target="#modal-signup">Join us</a></p>
             </div>
             </div>
         </div>
@@ -115,16 +110,26 @@
         </a>
     </div>
 
-    <!-- Log in user-->
-      
       <div class="container-fluid logged-in">
-        <h2 class="display-5 text-center mb-4 mt-4 main-heading">New Topic</h2>
         <div class="row">
-          <div class="col-8 main mt-5">
-              <!-- Dynamic Output -->
+          <div class="col-8 mt-5">
+            <h2 class="display-5 text-center mb-5 main-heading">New Topic</h2>
+              <div class="row main">
+                <!-- Dynamic Output -->
+              </div>
           </div>
           <div class="col-4 sidebar mt-5">
-            <h2 class="display-5 text-center">Chat</h2>
+            <h2 class="display-5 text-center sidebar-heading mb-5">Chat</h2>
+            <div class="body-message"><!-- Dynamic Output --></div>
+            <form id="message-form">
+              <div class="form-group">
+                <input type="text" class="form-control" id="message" placeholder="Enter Message">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" id="chatName" placeholder="Enter Chat Name">
+                <button type="submit" class="btn btn-modal mt-2">Send</button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
@@ -137,7 +142,7 @@
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title">Add Admin</h5>
+            <h5 class="modal-title">Make Admin</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -145,12 +150,12 @@
           <div class="modal-body">
           <form class="admin-actions">
               <div class="form-group">
-                <label for="email">Email address</label>
-                <input type="email" class="form-control" id="admin-email" placeholder="Email Admin">
+                <label for="email">User Email Address</label>
+                <input type="email" class="form-control" id="admin-email" placeholder="User Email">
               </div>
           </div>
           <div class="modal-footer">
-            <button type="submit" class="btn btn-primary">Make Admin</button>
+            <button type="submit" class="btn btn-modal">Make Admin</button>
           </div>
           </form>
         </div>
@@ -178,12 +183,16 @@
                   <input type="password" class="form-control" id="signup-password" placeholder="Choose password">
                 </div>
                 <div class="form-group">
-                  <label for="bio">Bio</label>
-                  <input type="text" class="form-control" id="signup-bio" placeholder="One line bio">
+                  <label for="username">username</label>
+                  <input type="text" class="form-control" id="username" placeholder="username">
+                </div>
+                <div class="form-group">
+                  <label for="bio">Location</label>
+                  <input type="text" class="form-control" id="signup-bio" placeholder="Enter Location">
                 </div>
             </div>
             <div class="modal-footer">
-              <button type="submit" class="btn btn-primary">Sgin Up</button>
+              <button type="submit" class="btn btn-modal">Sign up</button>
             </div>
             </form>
           </div>
@@ -212,7 +221,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-              <button type="submit" class="btn btn-primary">Sgin Up</button>
+              <button type="submit" class="btn btn-modal">Log In</button>
             </div>
             </form>
           </div>
@@ -242,10 +251,10 @@
               <div class="form-group">
                 <label for="date">Date</label>
                 <input type="date" class="form-control" id="date" placeholder="Enter Date">
-              </div>      
+              </div>    
             </div>
             <div class="modal-footer">
-              <button type="submit" class="btn btn-primary">Sgin Up</button>
+              <button type="submit" class="btn btn-modal">add new topic</button>
             </div>
           </form>
         </div>

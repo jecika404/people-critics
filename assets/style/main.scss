@@ -1,10 +1,10 @@
 // VARIABLES //
 
-$fontColor: #636e72;
+$fontColor: #576574;
+$bgColor: #ecf0f1;
+$primaryColor: #EA2027;
+$primaryColorDark: #c51319;
 
-$primaryColor: #d35400;
-$primaryColorDark: #a04000;
-$bgColor: #eaecf4;
 
 // BASE //
 *,
@@ -21,17 +21,30 @@ body {
     font-weight: 300;
     line-height: 1.5;
     background-color: $bgColor;
-
+    color: #576574;
 }
 
-
+input:focus,
+textarea:focus
+{
+    box-shadow: none !important;
+    border: solid 1px $primaryColor !important;
+}
+.btn:focus {
+    box-shadow: none !important;
+    border: none !important;
+}
+.btn:active {
+    box-shadow: none !important;
+    border: none !important;
+}
 
 // Background Cover Image
 .bg-img {
     opacity: .3;
 }
-// Carousel
 
+// Carousel
 .carousel-item {
     background-color: black;
 }
@@ -60,11 +73,13 @@ body {
         display: inline-block;
         margin-top: 15px;
         color: #fff;
-    }
-    a:hover {
-        transition: all .3s;
-        text-decoration: none;
-        background-color: $primaryColorDark;
+
+        &:hover,
+        &:active {
+            transition: all .3s;
+            text-decoration: none;
+            background-color: $primaryColorDark;
+        }
     }
 }
 
@@ -77,44 +92,18 @@ body {
 
 // NAVBAR //
 
-
-// Logo
+// LOGO //
 .logo {
     border-radius: 100%;
     opacity: .4;
     width: 50px;
 }
-// Nav  
+// NAV - LIST //
 .navbar-nav {
     font-size: 18px;
     text-transform: uppercase;
 }
-// Nav - Log Out User 
-.fixed-top {
-    .nav-item {
-        margin-right: 10px !important;
-        .btn-color {
-            background-color: $primaryColor;
-            color: #bdc3c7;
-            &:hover {
-                color: #bdc3c7 !important;
-                background-color: $primaryColorDark;
-            }
-
-        }
-
-    }
-    .nav-link{
-        color: #bdc3c7;
-        &:hover {
-            transition: all .3s;
-            text-decoration: none;  
-            color: $primaryColor !important;
-        }
-        
-    }
-}
-
+// NAV - ICON //
 .nav-icon {
     width: 30px !important;
     height: 30px !important;
@@ -125,63 +114,105 @@ body {
         fill: $primaryColorDark !important;
     }
 }
-// Nav - Log In User 
-.nav-login {    
-    // box-shadow: 2px 5px 18px -13px rgba(56,59,64,1);
-    background-color: #fff;    
+//  NAV - LOG OUT USER //
+.fixed-top {
     .nav-item {
-        .btn-blog {
-            background-color: $primaryColor !important;
+        margin-right: 10px !important;
+        .btn-signup {
+            background-color: $primaryColor;
             color: #fff;
-            border: 0;
-
             &:hover {
-                transition: all .3s;
-                background-color: $primaryColorDark !important;
-                color: #fff;
+                color: #fff !important;
+                background-color: $primaryColorDark;
             }
-            
         }
 
     }
-
+    .nav-link{
+        color: #fff !important;
+        &:hover,
+        &:active {
+            transition: all .3s;
+            text-decoration: none;  
+            color: $primaryColor !important;
+        }
+    }
 }
+
+
+//  NAV - LOG IN USER // 
+.nav-login {    
+    background-color: #fff;    
+}
+
 // MAIN //
 .main-heading {
-    color: $primaryColor;
+    color: $primaryColorDark;
+    font-weight: bold;
 }
-.main {
-    background-color: $bgColor;
-    
+.card {
+    box-shadow: 2px 5px 18px -13px rgba(56,59,64,1);
+    border: none;
+    margin-bottom: 25px;
+}
+.card-text {
+    color: $fontColor;
+}
+.header-card {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between !important;
-    .card {
-        border: none;
-    }
-    .main-card {
-        
-        .card-text {
-            color: $fontColor;
-
-        }
-        .card-title {
-            color: $primaryColor;
-        }
-    }
-    .card-body {
-        
-        padding: 5px 20px;
-    }
+    justify-content: space-between;
+}
+.card-title {
+    color: $primaryColor;
+    font-weight: bold;
+}
+.svg-delete {
+    width: 25px !important;
+    height: 25px !important;
+    fill: $primaryColor !important;
 }
 
 // SIDEBAR //
-.sidebar {
-    h2 {
-        color: $primaryColor;
-    }
-    
+.sidebar-heading {
+    color: $primaryColorDark;
+    font-weight: bold;
 }
+
+// MODALS //
+.modal-content {
+    background-color: $bgColor;
+    border: none !important;
+}
+.modal-header {
+    text-transform: uppercase;
+    color: #fff;
+    background-color: $primaryColor;
+}
+.close {
+    border: none !important;
+    color: #fff !important;
+    &:hover,
+    &:active {
+        color: #fff;
+    }
+    &:focus {
+        box-shadow: none !important;
+        border: none !important;
+    }
+}
+.btn-modal {
+    text-transform: uppercase;
+    background-color: $primaryColor;
+    color: #fff;
+    &:hover,
+    &:active {
+        color: #fff;
+        background-color: $primaryColorDark;
+    }
+}
+
+
+
 
 
 

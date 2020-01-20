@@ -9,6 +9,7 @@ adminForm.addEventListener('submit', (e) => {
     });
 });
 
+
 // auth status changes
 auth.onAuthStateChanged(user => {
     if(user) {
@@ -22,21 +23,45 @@ auth.onAuthStateChanged(user => {
         }, err => {
             console.log(err.message);
         });
+        db.collection('messages').onSnapshot(snapshot => {
+            setupChat(snapshot.docs);
+            
+        }, err => {
+            console.log(err.message);
+        });
     }else {
         setupUI();
         setupTopic([]);
+        setupChat([]);
     }
 });
+
+
+// chat
+const formMessage = document.querySelector('#message-form');
+formMessage.addEventListener('submit', (e) => {
+    e.preventDefault();
+    db.collection('messages').add({
+        message: formMessage['message'].value,
+        chatName: formMessage['chatName'].value
+    }).then(() => {
+
+    
+    })
+});
+
 
 // create new topic
 const createForm = document.querySelector('#create-form');
 createForm.addEventListener('submit', (e) => {
     e.preventDefault();
     $('#modal-create').modal('toggle');
+
     db.collection('topic').add({
         title: createForm['title'].value,
         content: createForm['content'].value,
-        date: createForm['date'].value
+        date: createForm['date'].value,
+
     }).then(() => {
         createForm.reset();
         
@@ -54,7 +79,9 @@ signupForm.addEventListener('submit', (e) => {
     
     auth.createUserWithEmailAndPassword(email, password).then(cred => {
         return db.collection('users').doc(cred.user.uid).set({
-            bio: signupForm['signup-bio'].value
+            bio: signupForm['signup-bio'].value,
+            username: signupForm['username'].value
+
           });
     }).then(() => {
         signupForm.reset();
