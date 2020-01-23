@@ -29,12 +29,6 @@ const setupUI = (user) => {
                     </svg>
                     <span class="nav-email">${user.email}</span>
                 </div>
-                <div>
-                <svg class="nav-icon mr-2">
-                    <use xlink:href="assets/img/sprite.svg#icon-location_onplaceroom"></use>
-                </svg>
-                <span class="nav-email">${doc.data().bio}</span>   
-                </div>
             </div>
             `;
             accountDetails.innerHTML = html;
@@ -62,13 +56,17 @@ const setupUI = (user) => {
     }  
 }
 
-// setup topic
+// Setup Topic
 const setupTopic = (data) => {
     if(data.length) {
         
         let html = '';
-        data.forEach(doc => {  
+        data.forEach(doc => {
             const topic = doc.data();
+            const when = dateFns.distanceInWordsToNow(
+                topic.created_at.toDate(),
+                { addSuffix: true }
+            );  
             const cardBody = `
             <div class="col-sm-6">
             <div class="card">
@@ -82,7 +80,7 @@ const setupTopic = (data) => {
                     </a>
                 </div>
                 <p class="card-text">${topic.content}</p>
-                <span class="card-text text-muted">${topic.date}</span>
+                <span class="card-text text-muted">${when}</span>
             </div>
             </div>
             </div>
@@ -104,15 +102,21 @@ const setupTopic = (data) => {
 
 // setup chat room
 const setupChat = (data) => {
-    if(data.length)  {
-        
+    if(data.length)  {       
         let html = '';
+
         data.forEach(doc => {  
-            const userMessage = doc.data();
+            const chats = doc.data();
+            const when = dateFns.distanceInWordsToNow(
+                chats.created_at.toDate(),
+                { addSuffix: true }
+            );
             const lists = `
               <ul class="list-group">
-                <li class="list-group-item list-group-item-danger">
-                    <span class="mr-4">${userMessage.chatName}:</span><span>${userMessage.message}</span>
+                <li class="list-group-item list-group-item-action list-group-item-light">
+                    <span class="mr-2 username-color">${chats.username}</span>
+                    <span>${chats.message}</span>
+                    <div><small>${when}</small></div>
                 </li>
               </ul>
             `;
@@ -123,8 +127,7 @@ const setupChat = (data) => {
 
     }else {
         bodyMessage.innerHTML = '';
-
-        
+  
     }
 }
 
