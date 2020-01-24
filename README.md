@@ -5,4 +5,4 @@
 
 # Vanila JavaScript, Firebase/Auth/Firestore, Bootstrap 4, Responsive and Modern Design!
 
-# Demo: https://jecika404.github.io/people-critics
+# Demo: https://jecika404.github.io/people-critics 
