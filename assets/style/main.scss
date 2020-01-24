@@ -4,7 +4,8 @@ $fontColor: #576574;
 $bgColor: #ecf0f1;
 $primaryColor: #EA2027;
 $primaryColorDark: #c51319;
-
+$secondColor: #16a085;
+$secondColorDark: #107360;
 
 // BASE //
 *,
@@ -114,6 +115,7 @@ textarea:focus
         fill: $primaryColorDark !important;
     }
 }
+
 //  NAV - LOG OUT USER //
 .fixed-top {
     .nav-item {
@@ -174,11 +176,20 @@ textarea:focus
 
 // SIDEBAR //
 .sidebar-heading {
-    color: $primaryColorDark;
+    color: $secondColorDark;
     font-weight: bold;
 }
 .username-color {
-    color: $primaryColorDark;
+    color: $secondColor;
+}
+.btn-sidebar {
+    background: $secondColor;
+    color: #fff;
+    &:hover,
+    &:active {
+        background: $secondColorDark;
+        color: #fff;
+    }
 }
 
 // MODALS //

@@ -68,19 +68,14 @@ const setupTopic = (data) => {
                 { addSuffix: true }
             );  
             const cardBody = `
-            <div class="col-sm-6">
+            <div class="col-sm-12 col-md-6">
             <div class="card">
             <div class="card-body">
                 <div class="header-card admin">
                     <h5 class="card-title">${topic.title}</h5>
-                    <a href="#" class="delete">
-                        <svg class="svg-delete">
-                            <use xlink:href="assets/img/sprite.svg#icon-clearclose"></use>
-                        </svg>
-                    </a>
                 </div>
                 <p class="card-text">${topic.content}</p>
-                <span class="card-text text-muted">${when}</span>
+                <small class="card-text text-muted">${when}</small>
             </div>
             </div>
             </div>
@@ -104,7 +99,6 @@ const setupTopic = (data) => {
 const setupChat = (data) => {
     if(data.length)  {       
         let html = '';
-
         data.forEach(doc => {  
             const chats = doc.data();
             const when = dateFns.distanceInWordsToNow(

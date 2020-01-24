@@ -17,7 +17,7 @@ auth.onAuthStateChanged(user => {
             user.admin = idTokenResult.claims.admin;
             setupUI(user);
         });
-        db.collection('topic').onSnapshot(snapshot => {
+        db.collection('topic').orderBy('created_at').onSnapshot(snapshot => {
             setupTopic(snapshot.docs);
             
         }, err => {

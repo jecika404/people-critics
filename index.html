@@ -20,13 +20,6 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
-                  <li class="nav-item logged-in">
-                    <a class="nav-link" href="#">
-                      <svg class="nav-icon">
-                        <use xlink:href="assets/img/sprite.svg#icon-message"></use>
-                      </svg>
-                    </a>
-                  </li>
                 <li class="nav-item admin" style="display: none;"  data-toggle="modal" data-target="#modal-create">
                   <a class="nav-link" href="#">
                     <svg class="nav-icon">
@@ -104,22 +97,22 @@
     </div>
       <div class="container-fluid logged-in">
         <div class="row">
-          <div class="col-8 mt-5">
+          <div class="col-8 col-sm-6 col-md-8 mt-5">
             <h2 class="display-5 text-center mb-5 main-heading">New Topic</h2>
               <div class="row main">
                 <!-- Dynamic Output -->
               </div>
           </div>
-          <div class="col-4 sidebar mt-5">
+          <div class="col-4 col-sm-6  col-md-4 sidebar mt-5">
             <h2 class="display-5 text-center sidebar-heading mb-5">Chat</h2>
-            <div class="body-message" style="height: 250px; overflow-y: scroll;"><!-- Dynamic Output --></div>
+            <div class="body-message mb-3" style="height: 300px; overflow-y: auto;"><!-- Dynamic Output --></div>
             <form id="message-form">
               <div class="form-group">
                 <input type="text" class="form-control" id="message" placeholder="Enter Message">
               </div>
               <div class="form-group">
                 <input type="text" class="form-control" id="chatName" placeholder="Enter Chat Name" required>
-                <button type="submit" class="btn btn-modal btn-block mt-2">Send</button>
+                <button type="submit" class="btn btn-sidebar btn-block mt-2">Send</button>
               </div>
             </form>
           </div>
@@ -140,7 +133,7 @@
           <form class="admin-actions">
               <div class="form-group">
                 <label for="email">User Email Address</label>
-                <input type="email" class="form-control" id="admin-email" placeholder="User Email">
+                <input type="email" class="form-control" id="admin-email" placeholder="User Email" required>
               </div>
           </div>
           <div class="modal-footer">

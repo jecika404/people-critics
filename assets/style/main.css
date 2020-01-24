@@ -177,12 +177,22 @@ textarea:focus {
 }
 
 .sidebar-heading {
-  color: #c51319;
+  color: #107360;
   font-weight: bold;
 }
 
 .username-color {
-  color: #c51319;
+  color: #16a085;
+}
+
+.btn-sidebar {
+  background: #16a085;
+  color: #fff;
+}
+
+.btn-sidebar:hover, .btn-sidebar:active {
+  background: #107360;
+  color: #fff;
 }
 
 .user-details {
