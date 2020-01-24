@@ -181,6 +181,14 @@ textarea:focus {
   font-weight: bold;
 }
 
+.username-color {
+  color: #c51319;
+}
+
+.user-details {
+  cursor: pointer;
+}
+
 .modal-content {
   background-color: #ecf0f1;
   border: none !important;

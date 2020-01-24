@@ -177,8 +177,14 @@ textarea:focus
     color: $primaryColorDark;
     font-weight: bold;
 }
+.username-color {
+    color: $primaryColorDark;
+}
 
 // MODALS //
+.user-details {
+    cursor: pointer;
+}
 .modal-content {
     background-color: $bgColor;
     border: none !important;

@@ -1,16 +1,16 @@
-// add admin cloud functions
+// Add Admin - Cloud Functions
 const adminForm = document.querySelector('.admin-actions');
 adminForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const adminEmail = document.querySelector('#admin-email').value;
     const addAdminRole = functions.httpsCallable('addAdminRole');
     addAdminRole({ email: adminEmail }).then(result => {
-        console.log(result);
+        $('#modal-rola').modal('toggle');
     });
 });
 
 
-// auth status changes
+// Auth Status Changes
 auth.onAuthStateChanged(user => {
     if(user) {
         user.getIdTokenResult().then(idTokenResult => {
@@ -23,7 +23,7 @@ auth.onAuthStateChanged(user => {
         }, err => {
             console.log(err.message);
         });
-        db.collection('messages').onSnapshot(snapshot => {
+        db.collection('chats').orderBy('created_at').onSnapshot(snapshot => {
             setupChat(snapshot.docs);
             
         }, err => {
@@ -37,61 +37,67 @@ auth.onAuthStateChanged(user => {
 });
 
 
-// chat
+// Chats
 const formMessage = document.querySelector('#message-form');
+
 formMessage.addEventListener('submit', (e) => {
     e.preventDefault();
-    db.collection('messages').add({
-        message: formMessage['message'].value,
-        chatName: formMessage['chatName'].value
-    }).then(() => {
+    const now = new Date();
+    db.collection('chats').add({
+        message: formMessage['message'].value.trim(),
+        username: formMessage['chatName'].value.trim(),
+        created_at: firebase.firestore.Timestamp.fromDate(now)
 
-    
-    })
+    }).then(() => {
+        document.getElementById('message').value='';
+        
+    })   
 });
 
 
-// create new topic
+// Admin - Create New Topic
 const createForm = document.querySelector('#create-form');
 createForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    $('#modal-create').modal('toggle');
-
+    const now = new Date();
     db.collection('topic').add({
-        title: createForm['title'].value,
-        content: createForm['content'].value,
-        date: createForm['date'].value,
+        title: createForm['title'].value.trim(),
+        content: createForm['content'].value.trim(),
+        created_at: firebase.firestore.Timestamp.fromDate(now)
 
     }).then(() => {
         createForm.reset();
+        $('#modal-create').modal('toggle');
         
     }).catch(err => {
-        console.log(err.message);
+        console.log(err);
     });
 });
 
-// sign up
+
+
+// Sign Up
 const signupForm = document.querySelector('#signup-form');
 signupForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    const email = signupForm['signup-email'].value;
-    const password = signupForm['signup-password'].value;
+    const email = signupForm['signup-email'].value.trim();
+    const password = signupForm['signup-password'].value.trim();
     
     auth.createUserWithEmailAndPassword(email, password).then(cred => {
         return db.collection('users').doc(cred.user.uid).set({
-            bio: signupForm['signup-bio'].value,
-            username: signupForm['username'].value
-
+            username: signupForm['username'].value.trim()
           });
     }).then(() => {
         signupForm.reset();
         $('#modal-signup').modal('toggle');
     }).catch(err => {
+        signupForm.querySelector('.alert').classList.remove('d-none');
+        signupForm.querySelector('.alert').innerHTML = err.message;
         
     });
 });
 
-// logout
+// Log Out
 const logout = document.querySelector('#logout');
 logout.addEventListener('click', (e) => {
     e.preventDefault();
@@ -100,16 +106,20 @@ logout.addEventListener('click', (e) => {
     });
 });
 
-// login
+// Log In
 const loginForm = document.querySelector('#login-form');
 loginForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    const email = loginForm['login-email'].value;
-    const password = loginForm['login-password'].value;
-    $('#modal-login').modal('toggle');
+    const email = loginForm['login-email'].value.trim();
+    const password = loginForm['login-password'].value.trim();
+    
     auth.signInWithEmailAndPassword(email, password).then(cred => {
         loginForm.reset();
-
+        $('#modal-login').modal('toggle');
+    }).catch(err => {
+        loginForm.querySelector('.alert').classList.remove('d-none');
+        loginForm.querySelector('.alert').innerHTML = err.message;
+        
     });
 
 });

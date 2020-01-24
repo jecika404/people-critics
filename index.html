@@ -14,7 +14,7 @@
     <!-- NAVBAR-->
     <nav class="navbar navbar-expand-lg navbar-dark">
             <img src="assets/img/logo.jpg" class="logo logged-out" alt="logo image">
-            <div class="user-details logged-in"><!-- Dynamic Output --></div>
+            <div class="user-details logged-in"  data-toggle="modal" data-target="#modal-account"><!-- Dynamic Output --></div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -38,13 +38,6 @@
                   <a class="nav-link" href="#">
                     <svg class="nav-icon">
                       <use xlink:href="assets/img/sprite.svg#icon-person_add"></use>
-                    </svg>
-                  </a>
-                </li>
-                <li class="nav-item logged-in" style="display: none;">
-                  <a class="nav-link" href="#" data-toggle="modal" data-target="#modal-account">
-                    <svg class="nav-icon">
-                      <use xlink:href="assets/img/sprite.svg#icon-person"></use>
                     </svg>
                   </a>
                 </li>
@@ -109,7 +102,6 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
-
       <div class="container-fluid logged-in">
         <div class="row">
           <div class="col-8 mt-5">
@@ -120,23 +112,20 @@
           </div>
           <div class="col-4 sidebar mt-5">
             <h2 class="display-5 text-center sidebar-heading mb-5">Chat</h2>
-            <div class="body-message"><!-- Dynamic Output --></div>
+            <div class="body-message" style="height: 250px; overflow-y: scroll;"><!-- Dynamic Output --></div>
             <form id="message-form">
               <div class="form-group">
                 <input type="text" class="form-control" id="message" placeholder="Enter Message">
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" id="chatName" placeholder="Enter Chat Name">
-                <button type="submit" class="btn btn-modal mt-2">Send</button>
+                <input type="text" class="form-control" id="chatName" placeholder="Enter Chat Name" required>
+                <button type="submit" class="btn btn-modal btn-block mt-2">Send</button>
               </div>
             </form>
           </div>
         </div>
       </div>
-      
-
     <!-- MODALS -->
-
     <!-- Add Admin Modal-->
     <div class="modal fade" id="modal-rola" tabindex="-1" role="dialog" aria-labelledby="addAdmin" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
@@ -161,7 +150,6 @@
         </div>
       </div>
     </div>
-
     <!-- Sign Up Modal-->
     <div class="modal fade" id="modal-signup" tabindex="-1" role="dialog" aria-labelledby="signUp" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -175,21 +163,18 @@
             <div class="modal-body">
             <form id="signup-form">
                 <div class="form-group">
-                  <label for="email">Email address</label>
-                  <input type="email" class="form-control" id="signup-email" placeholder="Email address">
+                  <label for="email">Email Address</label>
+                  <input type="text" class="form-control" id="signup-email" placeholder="Email Address" >
                 </div>
                 <div class="form-group">
                   <label for="password">Password</label>
-                  <input type="password" class="form-control" id="signup-password" placeholder="Choose password">
+                  <input type="password" class="form-control" id="signup-password" placeholder="Password" >
                 </div>
                 <div class="form-group">
-                  <label for="username">username</label>
-                  <input type="text" class="form-control" id="username" placeholder="username">
+                  <label for="username">Username / Chat Name</label>
+                  <input type="text" class="form-control" id="username" placeholder="Username" >
                 </div>
-                <div class="form-group">
-                  <label for="bio">Location</label>
-                  <input type="text" class="form-control" id="signup-bio" placeholder="Enter Location">
-                </div>
+                <div class="alert alert-danger d-none"></div>
             </div>
             <div class="modal-footer">
               <button type="submit" class="btn btn-modal">Sign up</button>
@@ -198,36 +183,35 @@
           </div>
         </div>
       </div>
-
-    <!-- Log In Modal-->
-    <div class="modal fade" id="modal-login" tabindex="-1" role="dialog" aria-labelledby="loginForm" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Log In</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-            <form id="login-form">
-                <div class="form-group">
-                  <label for="email">Email address</label>
-                  <input type="email" class="form-control" id="login-email" placeholder="Email address">
-                </div>
-                <div class="form-group">
-                  <label for="password">Password</label>
-                  <input type="password" class="form-control" id="login-password" placeholder="Enter Password">
-                </div>
-            </div>
-            <div class="modal-footer">
-              <button type="submit" class="btn btn-modal">Log In</button>
-            </div>
-            </form>
+  <!-- Log In Modal-->
+  <div class="modal fade" id="modal-login" tabindex="-1" role="dialog" aria-labelledby="loginForm" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Log In</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
+          <div class="modal-body">
+          <form id="login-form">
+              <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control" id="login-email" placeholder="Email address" required>
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="login-password" placeholder="Enter Password" required>
+              </div>
+              <div class="alert alert-danger d-none"></div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-modal">Log In</button>       
+          </div>          
+          </form>
         </div>
       </div>
-
+    </div>
     <!-- Create Topic Modal-->
     <div class="modal fade" id="modal-create" tabindex="-1" role="dialog" aria-labelledby="createForm" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
@@ -247,20 +231,16 @@
               <div class="form-group">
                 <label for="content">Topic Content</label>
                 <textarea type="text" id="content" class="form-control" cols="20" rows="5" placeholder="Enter Topic Content"></textarea>
-              </div>
-              <div class="form-group">
-                <label for="date">Date</label>
-                <input type="date" class="form-control" id="date" placeholder="Enter Date">
-              </div>    
+              </div> 
             </div>
             <div class="modal-footer">
               <button type="submit" class="btn btn-modal">add new topic</button>
             </div>
+            <div class="alert-name"></div>
           </form>
         </div>
       </div>
     </div>
-
     <!-- Account Modal -->
     <div class="modal fade" id="modal-account" tabindex="-1" role="dialog" aria-labelledby="accountForm" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
@@ -276,7 +256,7 @@
         </div>
       </div>
     </div>
-
+    <script src="http://cdn.date-fns.org/v1.9.0/date_fns.min.js"></script>
     <!-- FIREBASE -->
     <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-auth.js"></script>
@@ -297,8 +277,6 @@
     const db = firebase.firestore();
     const functions = firebase.functions();  
     </script>
-
-
     <!-- BOOTSTRAP AND JQuery-->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
@@ -307,7 +285,5 @@
     <script src="assets/js/bootstrap.js"></script>
     <script src="assets/js/auth.js"></script>
     <script src="assets/js/main.js"></script>
-    
-  
 </body>
 </html>
