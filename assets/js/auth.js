@@ -42,16 +42,16 @@ const formMessage = document.querySelector('#message-form');
 
 formMessage.addEventListener('submit', (e) => {
     e.preventDefault();
-    const now = new Date();  
+    const now = new Date();
     db.collection('chats').add({
         message: formMessage['message'].value.trim(),
         username: formMessage['chatName'].value.trim(),
         created_at: firebase.firestore.Timestamp.fromDate(now)
 
     }).then(() => {
-        formMessage.reset();
-
-    })
+        document.getElementById('message').value='';
+        
+    })   
 });
 
 
@@ -66,13 +66,11 @@ createForm.addEventListener('submit', (e) => {
         created_at: firebase.firestore.Timestamp.fromDate(now)
 
     }).then(() => {
-
-            createForm.reset();
-            $('#modal-create').modal('toggle');
+        createForm.reset();
+        $('#modal-create').modal('toggle');
         
-
     }).catch(err => {
-        
+        console.log(err);
     });
 });
 
@@ -92,9 +90,10 @@ signupForm.addEventListener('submit', (e) => {
     }).then(() => {
         signupForm.reset();
         $('#modal-signup').modal('toggle');
-        signupForm.querySelector('.alert').innerHTML = '';
     }).catch(err => {
+        signupForm.querySelector('.alert').classList.remove('d-none');
         signupForm.querySelector('.alert').innerHTML = err.message;
+        
     });
 });
 
@@ -117,6 +116,10 @@ loginForm.addEventListener('submit', (e) => {
     auth.signInWithEmailAndPassword(email, password).then(cred => {
         loginForm.reset();
         $('#modal-login').modal('toggle');
+    }).catch(err => {
+        loginForm.querySelector('.alert').classList.remove('d-none');
+        loginForm.querySelector('.alert').innerHTML = err.message;
+        
     });
 
 });
