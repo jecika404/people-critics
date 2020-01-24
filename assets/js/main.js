@@ -67,6 +67,7 @@ const setupTopic = (data) => {
                 topic.created_at.toDate(),
                 { addSuffix: true }
             );  
+            
             const cardBody = `
             <div class="col-sm-12 col-md-6">
             <div class="card">
